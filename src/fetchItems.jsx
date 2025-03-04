@@ -16,7 +16,7 @@ export const useFetchItems = () => {
       const response = await client.getEntries({
         content_type: "furnitureCollection",
       });
-      console.log(response);
+      // console.log(response);
 
       const data = response.items.map((item) => {
         const { description, dimensions, itemName, price, sold, photos } =
