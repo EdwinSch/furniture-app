@@ -19,7 +19,7 @@ const router = createBrowserRouter([
         element: <ContactPage />,
       },
       {
-        path: "object/:objectName",
+        path: "object/:objectId",
         element: <ObjectDetailsPage />,
       },
     ],

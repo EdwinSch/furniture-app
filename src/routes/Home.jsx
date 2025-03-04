@@ -2,8 +2,8 @@ import Objects from "../components/Objects";
 
 const HomePage = () => {
   return (
-    <div>
-      <h2>Homepage</h2>
+    <div className="homepage-container">
+      <h2>Overzicht</h2>
       <Objects />
     </div>
   );

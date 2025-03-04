@@ -3,7 +3,7 @@ import Card from "./Card";
 
 const Objects = () => {
   const { loading, objects } = useFetchItems();
-  console.log(objects);
+  // console.log(objects);
 
   if (loading) {
     return (
@@ -16,7 +16,7 @@ const Objects = () => {
   return (
     <section className="objects-container">
       {objects.map((object) => {
-        return <Card key={object.id} object={object} />;
+        return <Card key={object.id} {...object} />;
       })}
     </section>
   );

@@ -4,10 +4,10 @@ import { FaCouch } from "react-icons/fa6";
 const Header = () => {
   return (
     <header>
-      <div className="logo">
+      <Link to={"/"} className="logo">
         <FaCouch size="24px" />
         <h1>Inboedel te koop</h1>
-      </div>
+      </Link>
 
       <nav>
         <Link to={"/contact"} className="link-btn">
