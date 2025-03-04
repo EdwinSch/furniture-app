@@ -21,6 +21,10 @@ ul {
   height: 200px;
   display: block;
   object-fit: cover;
+
+  @media (max-width: 400px) {
+    height: 150px;
+  }
 }
 
 :root {
@@ -38,6 +42,10 @@ body {
   margin: 0 auto;
   padding: 0 40px;
   background-color: var(--background);
+
+  @media (max-width: 520px) {
+    padding: 0 20px;
+  }
 }
 
 header {
@@ -60,13 +68,22 @@ header {
       color: inherit;
     }
   }
+
+  @media (max-width: 520px) {
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 
 .homepage-container {
   margin-top: 50px;
 
+  @media (max-width: 520px) {
+    margin-top: 25px;
+  }
+
   .objects-container {
-    margin-top: 20px;
+    margin: 20px 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
@@ -74,17 +91,21 @@ header {
     .card-wrapper {
       padding: 20px;
       width: 100%;
-      border: solid var(--black) 1px;
       background-color: var(--white);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
       & h3 {
         font-size: 1rem;
-        margin-top: 20px;
+        margin-top: 15px;
       }
 
       .price {
-        margin: 10px 0;
+        margin-bottom: 15px;
       }
+    }
+
+    @media (max-width: 520px) {
+      grid-template-columns: 1fr;
     }
   }
 }
@@ -103,6 +124,10 @@ header {
   &:active {
     background-color: rgba(34, 34, 34, 0.8);
   }
+}
+
+footer {
+  text-align: center;
 }
 
 /* Loader */
