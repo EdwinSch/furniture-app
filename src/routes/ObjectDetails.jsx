@@ -27,6 +27,18 @@ const ObjectDetailsPage = () => {
         <span>Terug</span>
       </Link>
       <h2>{itemName}</h2>
+      <div className="photo-container">
+        {photos.map((photo, idx) => {
+          return (
+            <img
+              key={idx}
+              src={photo.fields.file.url}
+              alt={photo.fields.title}
+              className="detail-img"
+            />
+          );
+        })}
+      </div>
       <p className="description">{description}</p>
       <h3>Afmetingen:</h3>
       <ul className="dimensions">

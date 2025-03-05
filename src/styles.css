@@ -123,12 +123,37 @@ header {
   }
 
   & h2 {
-    margin-top: 25px;
+    margin-top: 30px;
     font-size: 28px;
   }
 
+  .photo-container {
+    margin-top: 15px;
+    display: flex;
+    gap: 20px;
+
+    @media (max-width: 1280px) {
+      flex-wrap: wrap;
+    }
+
+    .detail-img {
+      width: 100%;
+      height: 400px;
+      display: block;
+      object-fit: cover;
+
+      @media (max-width: 1280px) {
+        height: 600px;
+      }
+
+      @media (max-width: 700px) {
+        height: 200px;
+      }
+    }
+  }
+
   .description {
-    margin-top: 20px;
+    margin-top: 25px;
     line-height: 20px;
     font-weight: 300;
   }
