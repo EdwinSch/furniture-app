@@ -12,6 +12,9 @@ const ObjectDetailsPage = () => {
 
   const { itemName, description, photos, price, dimensions } = selectedObject;
 
+  // Window start at top
+  window.scrollTo(0, 0);
+
   if (loading) {
     return (
       <section className="details-container">

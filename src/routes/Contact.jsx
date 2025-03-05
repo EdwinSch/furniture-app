@@ -27,11 +27,11 @@ const ContactPage = () => {
       .then((response) => {
         setStatus("Bericht verstuurd!");
         setFormData({ name: "", email: "", message: "" });
-        console.log("Message sent successfully!", response);
+        // console.log("Message sent successfully!", response);
       })
       .catch((error) => {
         setStatus("Kon bericht niet versturen :(");
-        console.log("Failed to send message.", error);
+        // console.log("Failed to send message.", error);
       });
   };
 
