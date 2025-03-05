@@ -230,6 +230,17 @@ header {
     height: 150px;
   }
 
+  .submit-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .status {
+      font-weight: 600;
+      color: green;
+    }
+  }
+
   & h3 {
     margin-top: 50px;
     margin-bottom: 10px;

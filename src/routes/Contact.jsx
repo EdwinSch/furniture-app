@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
+import emailjs from "@emailjs/browser";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ const ContactPage = () => {
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,7 +18,21 @@ const ContactPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    const serviceId = import.meta.env.VITE_EMAIL_SERVICE_KEY;
+    const templateId = import.meta.env.VITE_EMAIL_TEMPLATE_KEY;
+    const publicKey = import.meta.env.VITE_EMAIL_PUBLIC_KEY;
+
+    emailjs
+      .send(serviceId, templateId, formData, publicKey)
+      .then((response) => {
+        setStatus("Bericht verstuurd!");
+        setFormData({ name: "", email: "", message: "" });
+        console.log("Message sent successfully!", response);
+      })
+      .catch((error) => {
+        setStatus("Kon bericht niet versturen :(");
+        console.log("Failed to send message.", error);
+      });
   };
 
   return (
@@ -66,10 +82,13 @@ const ContactPage = () => {
         className="input textarea-input"
         required
       />
-      <button type="submit" className="link-btn">
-        Verstuur bericht
-      </button>
-      {/* {status && <p className="mt-2 text-green-500">{status}</p>} */}
+
+      <div className="submit-wrapper">
+        <button type="submit" className="link-btn">
+          Verstuur bericht
+        </button>
+        {status && <p className="status">{status}</p>}
+      </div>
 
       <h3>Ophalen in Breda</h3>
       <iframe
