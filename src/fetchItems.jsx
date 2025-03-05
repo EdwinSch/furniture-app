@@ -36,5 +36,5 @@ export const useFetchItems = () => {
   useEffect(() => {
     getData();
   }, []);
-  return { loading, objects };
+  return { loading, objects, getData };
 };
