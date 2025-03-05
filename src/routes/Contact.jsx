@@ -70,6 +70,17 @@ const ContactPage = () => {
         Verstuur bericht
       </button>
       {/* {status && <p className="mt-2 text-green-500">{status}</p>} */}
+
+      <h3>Ophalen in Breda</h3>
+      <iframe
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        loading="lazy"
+        allowFullScreen
+        referrerPolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9915.691630125926!2d4.7669176862287745!3d51.58797628126061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c69f830e4d6aad%3A0x250188f699ec66c2!2sBreda%20Centrum%2C%20Breda!5e0!3m2!1snl!2snl!4v1741202515834!5m2!1snl!2snl"
+      ></iframe>
     </form>
   );
 };

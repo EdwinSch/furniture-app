@@ -6,7 +6,9 @@ const Header = () => {
     <header>
       <Link to={"/"} className="logo">
         <FaCouch size="24px" />
-        <h1>Inboedel te koop</h1>
+        <h1>
+          Inboedel te koop <span>Breda</span>
+        </h1>
       </Link>
 
       <nav>
