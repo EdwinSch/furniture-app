@@ -1,9 +1,8 @@
-import { useFetchItems } from "../fetchItems";
 import Card from "./Card";
+import { useGlobalContext } from "../context";
 
 const Objects = () => {
-  const { loading, objects } = useFetchItems();
-  // console.log(objects);
+  const { objects, loading } = useGlobalContext();
 
   if (loading) {
     return (
@@ -12,7 +11,6 @@ const Objects = () => {
       </section>
     );
   }
-
   return (
     <section className="objects-container">
       {objects.map((object) => {
