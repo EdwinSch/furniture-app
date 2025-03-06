@@ -9,13 +9,13 @@ const ObjectDetailsPage = () => {
   const { objects, loading } = useGlobalContext();
 
   const selectedObject = objects.find((object) => object.id == objectId);
-  console.log(selectedObject);
+  // console.log(selectedObject);
 
   const { itemName, description, photos, price, dimensions, markplaatsLink } =
-    // selectedObject;
+    selectedObject;
 
-    // Window start at top
-    window.scrollTo(0, 0);
+  // Window start at top
+  window.scrollTo(0, 0);
 
   if (loading) {
     return (

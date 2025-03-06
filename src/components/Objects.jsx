@@ -11,6 +11,7 @@ const Objects = () => {
       </section>
     );
   }
+
   return (
     <section className="objects-container">
       {objects.map((object) => {
