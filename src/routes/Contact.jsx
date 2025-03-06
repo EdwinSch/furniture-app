@@ -93,7 +93,7 @@ const ContactPage = () => {
       <h3>Ophalen in Breda</h3>
       <iframe
         width="100%"
-        height="100%"
+        height="300px"
         style={{ border: 0 }}
         loading="lazy"
         allowFullScreen

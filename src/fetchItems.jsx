@@ -19,11 +19,27 @@ export const useFetchItems = () => {
       // console.log(response);
 
       const data = response.items.map((item) => {
-        const { description, dimensions, itemName, price, sold, photos } =
-          item.fields;
+        const {
+          description,
+          dimensions,
+          itemName,
+          price,
+          sold,
+          photos,
+          markplaatsLink,
+        } = item.fields;
         const id = item.sys.id;
         // const img = image?.fields?.file?.url;
-        return { id, description, dimensions, itemName, price, sold, photos };
+        return {
+          id,
+          description,
+          dimensions,
+          itemName,
+          price,
+          sold,
+          photos,
+          markplaatsLink,
+        };
       });
       setObjects(data);
       setLoading(false);

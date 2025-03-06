@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
+import { FaExternalLinkAlt } from "react-icons/fa";
 import { useGlobalContext } from "../context";
 
 const ObjectDetailsPage = () => {
@@ -10,7 +11,8 @@ const ObjectDetailsPage = () => {
   const selectedObject = objects.find((object) => object.id == objectId);
   // console.log(selectedObject);
 
-  const { itemName, description, photos, price, dimensions } = selectedObject;
+  const { itemName, description, photos, price, dimensions, markplaatsLink } =
+    selectedObject;
 
   // Window start at top
   window.scrollTo(0, 0);
@@ -50,6 +52,16 @@ const ObjectDetailsPage = () => {
         })}
       </ul>
       <p className="price">Prijs: &euro; {price},-</p>
+
+      <a
+        href={markplaatsLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="external-btn"
+      >
+        <span>Bekijk op Marktplaats</span>
+        <FaExternalLinkAlt size={15} />
+      </a>
     </section>
   );
 };
