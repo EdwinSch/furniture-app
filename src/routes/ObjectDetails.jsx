@@ -2,27 +2,42 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { IoArrowBack } from "react-icons/io5";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import { useGlobalContext } from "../context";
+import { useEffect, useState } from "react";
+
+import { useDataContext } from "../context";
 
 const ObjectDetailsPage = () => {
   const { objectId } = useParams();
-  const { objects, loading } = useGlobalContext();
+  const { objects, loading, fetchItems } = useDataContext();
+  const [item, setItem] = useState(null);
 
-  const selectedObject = objects.find((object) => object.id == objectId);
-  // console.log(selectedObject);
+  // If objects are empty (e.g., on refresh), trigger a fetch
+  useEffect(() => {
+    if (objects.length === 0) {
+      fetchItems();
+    }
+  }, [objects.length, fetchItems]);
 
-  const { itemName, description, photos, price, dimensions, markplaatsLink } =
-    selectedObject;
+  useEffect(() => {
+    if (objects.length > 0) {
+      const foundItem = objects.find((object) => object.id == objectId);
+      setItem(foundItem || null);
+    }
+  }, [objects, objectId]);
 
   // Window start at top
   window.scrollTo(0, 0);
 
-  if (loading) {
+  if (loading || (!item && objects.length === 0)) {
     return (
       <section className="details-container">
         <div className="loading"></div>
       </section>
     );
+  }
+
+  if (!item) {
+    return <p>Item not found. It may have been removed.</p>;
   }
 
   return (
@@ -31,9 +46,9 @@ const ObjectDetailsPage = () => {
         <IoArrowBack />
         <span>Terug</span>
       </Link>
-      <h2>{itemName}</h2>
+      <h2>{item.itemName}</h2>
       <div className="photo-container">
-        {photos.map((photo, idx) => {
+        {item.photos.map((photo, idx) => {
           return (
             <img
               key={idx}
@@ -44,17 +59,17 @@ const ObjectDetailsPage = () => {
           );
         })}
       </div>
-      <p className="description">{description}</p>
+      <p className="description">{item.description}</p>
       <h3>Afmetingen:</h3>
       <ul className="dimensions">
-        {dimensions.map((item, idx) => {
+        {item.dimensions.map((item, idx) => {
           return <li key={idx}>- {item}</li>;
         })}
       </ul>
-      <p className="price">Prijs: &euro; {price},-</p>
+      <p className="price">Prijs: &euro; {item.price},-</p>
 
       <a
-        href={markplaatsLink}
+        href={item.markplaatsLink}
         target="_blank"
         rel="noopener noreferrer"
         className="external-btn"

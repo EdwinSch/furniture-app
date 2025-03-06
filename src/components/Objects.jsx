@@ -1,8 +1,9 @@
 import Card from "./Card";
-import { useGlobalContext } from "../context";
+
+import { useDataContext } from "../context";
 
 const Objects = () => {
-  const { objects, loading } = useGlobalContext();
+  const { objects, loading } = useDataContext();
 
   if (loading) {
     return (
