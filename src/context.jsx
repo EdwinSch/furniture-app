@@ -20,6 +20,8 @@ export const DataProvider = ({ children }) => {
         content_type: "furnitureCollection",
       });
 
+      response.items.reverse();
+
       const data = response.items.map((item) => {
         const {
           description,
